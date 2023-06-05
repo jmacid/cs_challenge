@@ -9,8 +9,13 @@ class NotificationSerializer(serializers.BaseSerializer):
         model = Notification
         fields = (
             "id",
+            "account",
             "created_at",
             "seen",
             "notification_type",
             "message",
         )
+
+    def create(self, data):
+        notification = Notification.objects.create(**data)
+        return notification
