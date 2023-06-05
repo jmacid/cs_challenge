@@ -1,0 +1,39 @@
+.container, .unseenContainer {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px black solid;
+  border-radius: 10px;
+  max-width: 500px;
+  margin-bottom: 10px;
+
+  &:hover {
+    background-color:#ccc;
+  }
+}
+
+.title {
+  padding-left: 15px;
+}
+
+.buttons {
+  display:flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  * {
+    margin: 0 $spacer;
+  }
+}
+
+.logo {
+  height: 50px;
+  padding: 10px;
+  border-right: 1px black solid;
+}
+
+.unseenContainer {
+  background-color: white;
+  font-weight: bold;
+}
