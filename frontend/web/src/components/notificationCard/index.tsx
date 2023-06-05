@@ -19,18 +19,23 @@ interface Props {
 export const NotificationCard = ({ notification, }: any) => {
   const [seen, setSeen,] = useState(notification.seen);
 
-  const image = (notification.notification_type === 'WL') ? Images.success : Images.error;
-  let containerStyle = seen ? styles.container : styles.unseenContainer;
-
 
   const markAsSeen = () =>{
     setSeen(true);
-    containerStyle = styles.container;
+    // TODO - communicate with backend to set seen as true
   } 
 
   return (
-    <div className={containerStyle} onClick={() => markAsSeen()} role="button">
-      <img className={styles.logo} src={image} alt={Strings.general.clearsummit} />
+    <div
+      className={seen ? styles.container : styles.unseenContainer}
+      onClick={() => markAsSeen()}
+      role="button"
+    >
+      <img
+        className={styles.logo}
+        src={(notification.notification_type === 'WL') ? Images.success : Images.error}
+        alt={Strings.general.clearsummit}
+      />
       <div key={notification.id} className={styles.title}>{notification.message}</div>
     </div>
   )

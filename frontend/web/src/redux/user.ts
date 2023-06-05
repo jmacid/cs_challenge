@@ -13,7 +13,7 @@ export const ACTIONS = {
   END_REQUEST: 'USER/END_REQUEST',
   FAILURE_CREATE_USER: 'FAILURE_CREATE_USER',
   LOGOUT: 'LOGOUT',
-  NOTIFICATIONS: 'NOTIFICATIONS',
+  GET_NOTIFICATIONS_SUCCESS: 'GET_NOTIFICATIONS_SUCCESS',
 }
 
 export const INITIAL_STATE: UserStoreState = {
@@ -76,7 +76,7 @@ export const reduxSet = {
     logOut
   ),
   notifications: dispatchReducer<UserStoreState, NotificationResponse>(
-    ACTIONS.NOTIFICATIONS,
+    ACTIONS.GET_NOTIFICATIONS_SUCCESS,
     notifications
   ),
 }

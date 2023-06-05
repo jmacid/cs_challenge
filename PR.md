@@ -19,6 +19,6 @@
 * Validate data
 
 ### Frontend
-* Create function to set a notification as seen.
+* Replace the dummy function to set a notification as seen to a function that communicates with the backend.
 * Choose better icons for the notification cards.
 
