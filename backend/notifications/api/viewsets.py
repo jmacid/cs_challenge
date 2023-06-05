@@ -56,10 +56,14 @@ class NotificationViewSet(BaseAuthViewSet):
     @deserialize
     @authenticated
     def create(self, request, **kwargs):
-        body = kwargs['data']
+        data = kwargs['data']
         account = Account.objects.filter(id=request.user.id).first()
-        # TODO - validate data 
-        notification = Notification(account=account, seen=body['seen'], message=body['message'], notification_type=body['notification_type'] )
-        notification.save()
-        serializer = NotificationSerializer(notification)
-        return Response(serializer.data)
+        data["account"] = account.id
+
+        serializer = NotificationSerializer(data=data)
+
+        if serializer.is_valid():
+            notification = serializer.save()
+            return self.respond(obj=notification)
+
+        return self.error_response_from_form(serializer)
