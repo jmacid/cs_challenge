@@ -20,7 +20,6 @@ export const INITIAL_STATE: UserStoreState = {
   user: null,
   pending: false,
   error: null,
-  notifications: null,
 }
 
 const loginSuccess = (state: UserStoreState, payload: SignUpResponse) => ({

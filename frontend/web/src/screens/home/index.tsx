@@ -1,7 +1,7 @@
 import React, { useEffect, useState, } from 'react'
 
 
-import { User, } from '@challenge/models'
+import { User, Notification} from '@challenge/models'
 import styles from './styles.scss'
 import services from '@/helpers'
 import { notificationPayload, } from '@/redux/api-payloads'
@@ -17,7 +17,7 @@ import { NotificationCard, } from '@/components'
 
 type StateProps = {
   user: User | null | undefined
-  notifications: any
+  notifications: Notification | null | undefined
   error: string
 }
 
@@ -25,9 +25,8 @@ type StateProps = {
 
 export const HomepageScreen = (props:any) => {
 
-  const { notifications: notificationsProps, } = props;
+  const { notifications: notificationsProps, makeRequest, } = props;
   const [notifications, setNotifications,] = useState([]);
-  const { makeRequest, } = props
   
   const fetchData = () =>{  
     const np = notificationPayload(null)

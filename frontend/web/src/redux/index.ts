@@ -17,7 +17,6 @@ export interface UserStoreState {
   user: User | null
   pending: boolean
   error: string | null
-  notifications: Array<any>
 }
 
 export interface StoreState {

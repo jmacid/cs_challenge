@@ -28,6 +28,7 @@ export interface SignUpResponse {
 
 interface Notification {
   id: number,
+  account: string,
   notification_type: string,
   seen: boolean,
   created_at: Date,
